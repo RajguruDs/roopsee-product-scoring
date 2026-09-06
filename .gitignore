@@ -37,3 +37,11 @@ data/*.csv
 # Ignore old source population
 data/source/useful_skin_bodycare_products.xlsx
 data/source/retailer_products_rows.csv.gz
+
+# Legacy generated frontend dataset
+static/data/
+
+# Historical experiment outputs
+outputs/
+!outputs/roopsee_canonical/
+!outputs/roopsee_canonical/scored_population_full.json

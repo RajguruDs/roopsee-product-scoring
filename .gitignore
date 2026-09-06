@@ -1,0 +1,39 @@
+.DS_Store
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Local settings / secrets
+.claude/
+.env
+.env.local
+.vercel
+
+# Generated outputs
+outputs/
+
+# Keep only the V3 runtime dataset
+!outputs/
+!outputs/roopsee_canonical/
+!outputs/roopsee_canonical/scored_population_full.json
+
+# Ignore old/general datasets
+data/*.xlsx
+data/*.csv
+*.xlsx
+*.csv
+
+# Required V3 data
+!data/source/
+!data/source/canonical_scoring_population_v2.csv
+!data/source/scoring_input_ingredient_mapping_v2.csv
+!data/source/roopsee_ingredient_scores_v3.xlsx
+
+# Required legacy reference data for ranking
+!data/products.csv
+
+# Ignore old source population
+data/source/useful_skin_bodycare_products.xlsx
+data/source/retailer_products_rows.csv.gz

@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Roopsee Match Studio</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div>
+        <a class="brand" href="#" aria-label="Roopsee home">roopsee<span>.</span></a>
+        <p class="eyebrow">Automated product scoring platform</p>
+      </div>
+      <div class="header-meta">
+        <span id="product-count">Loading products</span>
+        <span id="confidence-summary">Preparing scores</span>
+      </div>
+    </header>
+
+    <main class="page-shell">
+      <section class="hero-panel">
+        <div>
+          <p class="eyebrow">Skin Quiz</p>
+          <h1>Find the right products for any profile.</h1>
+          <p class="hero-copy">
+            This demo applies the automated ingredient scoring layer, doctor-reference anchoring, and final rank fusion to the high-confidence topical catalog.
+          </p>
+        </div>
+        <div class="validation-card" id="validation-card">
+          <span>Validation</span>
+          <strong>Loading</strong>
+          <p>Against the doctor-verified reference set.</p>
+        </div>
+      </section>
+
+      <section class="quiz-card" aria-label="Skin profile controls">
+        <div class="quiz-grid">
+          <div class="quiz-group wide">
+            <div class="group-title">What's your skin type?</div>
+            <div class="button-grid" id="skin-type-options"></div>
+          </div>
+          <div class="quiz-group">
+            <div class="group-title">Is your skin sensitive?</div>
+            <div class="button-grid two" id="sensitive-options"></div>
+          </div>
+          <div class="quiz-group">
+            <div class="group-title">Tell us more about you</div>
+            <div class="select-grid">
+              <label>
+                <span>Age</span>
+                <select id="age-select"></select>
+              </label>
+              <label>
+                <span>Gender</span>
+                <select id="gender-select"></select>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="quiz-group full">
+          <div class="group-title">Choose your skin concern <small>(choose 1)</small></div>
+          <div class="concern-grid" id="concern-options"></div>
+        </div>
+
+        <div class="quiz-group full">
+          <div class="group-title">Special conditions</div>
+          <div class="special-grid" id="special-options"></div>
+        </div>
+      </section>
+
+      <section class="score-strip" id="score-bins" aria-label="Score range summary"></section>
+
+      <section class="workspace">
+        <div class="toolbar">
+          <div class="tabs" role="tablist" aria-label="Result tabs">
+            <button class="tab active" data-tab="products" type="button">Products</button>
+            <button class="tab" data-tab="routine" type="button">Routine</button>
+          </div>
+          <div class="toolbar-actions">
+            <input id="search-input" type="search" placeholder="Search product, brand, ingredient" />
+            <select id="type-filter" aria-label="Filter by product type"></select>
+            <select id="score-filter" aria-label="Filter by score range"></select>
+            <select id="price-filter" aria-label="Filter by price"></select>
+            <select id="confidence-filter" aria-label="Filter by confidence"></select>
+          </div>
+        </div>
+
+        <div id="products-view">
+          <div class="results-line">
+            <span id="results-count">Loading results</span>
+            <span id="profile-line"></span>
+          </div>
+          <div class="product-grid" id="product-grid"></div>
+        </div>
+
+        <div id="routine-view" class="hidden">
+          <div class="routine-intro">
+            <h2>Routine preview</h2>
+            <p>The routine picks the highest-ranked eligible product by slot for this profile. Premium prioritizes products above Rs 1000 and score 90+, while Value Fit keeps price below Rs 1000.</p>
+          </div>
+          <div id="routine-grid" class="routine-grid"></div>
+        </div>
+      </section>
+    </main>
+
+    <div class="modal-backdrop hidden" id="product-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <article class="modal-card">
+        <button class="modal-close" id="modal-close" type="button" aria-label="Close product details">Close</button>
+        <div id="modal-content"></div>
+      </article>
+    </div>
+
+    <script src="./app.js" defer></script>
+  </body>
+</html>
